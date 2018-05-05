@@ -101,7 +101,7 @@ public class GlobeSortServer {
             SortTime sortTime = sortTimeResponseBuilder.build();
             ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();
 
-            responseObserver.onNext(response);
+            responseObserver.onNext(response.getIntArray());
             responseObserver.onCompleted();
         }
     }
