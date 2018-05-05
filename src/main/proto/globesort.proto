@@ -14,3 +14,13 @@ message Empty { }
 message IntArray {
   repeated int32 values = 1;
 }
+
+message SortTime {
+    int64 sortTime = 1;
+}
+
+message ServResponse
+{
+	IntArray result = 1;
+    SortTime sortTime = 2;
+}
