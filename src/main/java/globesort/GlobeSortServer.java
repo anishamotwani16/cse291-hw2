@@ -91,7 +91,6 @@ public class GlobeSortServer {
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
             Arrays.sort(values);
 
-            long elapsedTime = System.nanoTime() - startTime;
 
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             for(Integer val : values) {
@@ -100,7 +99,6 @@ public class GlobeSortServer {
             IntArray sortResponse = responseBuilder.build();
             SortTime.Builder sortTimeResponseBuilder = SortTime.newBuilder().setSortTime(elapsedTime);
             SortTime sortTime = sortTimeResponseBuilder.build();
-            //IntArray response = responseBuilder.build();
             ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();
 
             responseObserver.onNext(response);
