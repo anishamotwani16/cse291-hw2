@@ -120,7 +120,7 @@ public class GlobeSortClient {
         double elapsedTime = System.nanoTime() - startTime;
         elapsedTime = elapsedTime/1e9;
         double networkThroughputTime = elapsedTime - timeToSort;
-        System.out.println("elapsedTime "+elapsedTime+" timeToSort "+timeToSort);
+        System.out.println("elapsedTime "+elapsedTime+" timeToSort "+timeToSort+" networkThroughputTime "+networkThroughputTime);
         System.out.println("Total Application Throughput Time: " + elapsedTime + " sec");
         System.out.println("Application throughput: " + numValues/elapsedTime + " number of intergers sorted per second");
         System.out.println("Total Network Throughput Time: " + networkThroughputTime + " sec" );
