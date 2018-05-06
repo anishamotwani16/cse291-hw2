@@ -99,7 +99,7 @@ public class GlobeSortServer {
             IntArray sortResponse = responseBuilder.build();
             SortTime.Builder sortTimeResponseBuilder = SortTime.newBuilder().setSortTime(elapsedTime);
             SortTime sortTime = sortTimeResponseBuilder.build();
-            ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();
+            ServResponse response = ServResponse.newBuilder().setResult(sortResponse).setSortTime(sortTime).build();
 
             responseObserver.onNext(response);
             responseObserver.onCompleted();
