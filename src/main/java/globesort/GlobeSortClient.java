@@ -46,8 +46,8 @@ public class GlobeSortClient {
 
         long elapsedTime = System.nanoTime() - startTime;
 
-        System.out.println("Total Ping Time (Latency): " + elapsedTime + " ns");
-        System.out.println("Half Ping Time (Half Latency): " + elapsedTime / 2.0 + " ns");
+        System.out.println("Total Ping Time (Latency): " + elapsedTime/1e9 + " sec");
+        System.out.println("Half Ping Time (Half Latency): " + elapsedTime*1.0 / 2.0/1e9 + " sec");
 
         System.out.println("Ping successful.");
 
@@ -119,10 +119,10 @@ public class GlobeSortClient {
 
         long elapsedTime = System.nanoTime() - startTime;
         long networkThroughputTime = elapsedTime - timeToSort;
-        System.out.println("Total Application Throughput Time: " + elapsedTime + " ns");
-        System.out.println("Application throughput: " + elapsedTime*1.0/numValues + " number of intergers sorted per second");
-        System.out.println("Total Network Throughput Time: " + networkThroughputTime + " ns" );
-        System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0 + " ns" );
+        System.out.println("Total Application Throughput Time: " + elapsedTime/1e9 + " sec");
+        System.out.println("Application throughput: " + elapsedTime*1.0/1e9/numValues + " number of intergers sorted per second");
+        System.out.println("Total Network Throughput Time: " + networkThroughputTime/1e9 + " s" );
+        System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0/1e9 + " sec" );
 
     }
 }
