@@ -59,7 +59,7 @@ public class GlobeSortClient {
         SortTime sortTime = response.getSortTime();
         long timeToSort = sortTime.getSortTime();
 
-        System.out.println("Sort on Server Time taken: " + timeToSort + " ns");
+        System.out.println("Sort on Server Time taken: " + timeToSort/1e9 + " sec");
 
         System.out.println("Sorted array");
         return timeToSort;
@@ -118,10 +118,11 @@ public class GlobeSortClient {
         }
 
         long elapsedTime = System.nanoTime() - startTime;
+        elapsedTime = elapsedTime/1e9;
         long networkThroughputTime = elapsedTime - timeToSort;
-        System.out.println("Total Application Throughput Time: " + elapsedTime/1e9 + " sec");
-        System.out.println("Application throughput: " + elapsedTime*1.0/1e9/numValues + " number of intergers sorted per second");
-        System.out.println("Total Network Throughput Time: " + networkThroughputTime/1e9 + " s" );
+        System.out.println("Total Application Throughput Time: " + elapsedTime + " sec");
+        System.out.println("Application throughput: " + numValues/elapsedTime + " number of intergers sorted per second");
+        System.out.println("Total Network Throughput Time: " + networkThroughputTime/1e9 + " sec" );
         System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0/1e9 + " sec" );
 
     }
