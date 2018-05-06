@@ -62,7 +62,7 @@ public class GlobeSortClient {
         System.out.println("Sort on Server Time taken: " + timeToSort/1e9 + " sec");
 
         System.out.println("Sorted array");
-        return timeToSort;
+        return timeToSort/1e9;
 
     }
 
