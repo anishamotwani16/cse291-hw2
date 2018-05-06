@@ -42,7 +42,6 @@ public class GlobeSortClient {
         System.out.println("Pinging " + serverStr + "...");
         long startTime = System.nanoTime();
 
-
         serverStub.ping(Empty.newBuilder().build());
 
         long elapsedTime = System.nanoTime() - startTime;
@@ -53,8 +52,9 @@ public class GlobeSortClient {
         System.out.println("Ping successful.");
 
         System.out.println("Requesting server to sort array");
+
         IntArray request = IntArray.newBuilder().addAllValues(Arrays.asList(values)).build();
-        IntArray response = serverStub.sortIntegers(request);
+        ServResponse response = serverStub.sortIntegers(request);
 
         SortTime sortTime = response.getSortTime();
         long timeToSort = sortTime.getSortTime();
@@ -122,7 +122,7 @@ public class GlobeSortClient {
         System.out.println("Total Application Throughput Time: " + elapsedTime + " ns");
         System.out.println("Application throughput: " + elapsedTime*1.0/numValues + " number of intergers sorted per second");
         System.out.println("Total Network Throughput Time: " + networkThroughputTime + " ns" );
-        System.out.println("One way Network Throughput Time: " + networkThroughputTime/2.0 + " ns" );
+        System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0 + " ns" );
 
     }
 }
