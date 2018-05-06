@@ -123,8 +123,8 @@ public class GlobeSortClient {
         System.out.println("elapsedTime "+elapsedTime+" timeToSort "+timeToSort);
         System.out.println("Total Application Throughput Time: " + elapsedTime + " sec");
         System.out.println("Application throughput: " + numValues/elapsedTime + " number of intergers sorted per second");
-        System.out.println("Total Network Throughput Time: " + networkThroughputTime/1e9 + " sec" );
-        System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0/1e9 + " sec" );
+        System.out.println("Total Network Throughput Time: " + networkThroughputTime + " sec" );
+        System.out.println("One way Network Throughput Time: " + networkThroughputTime*1.0/2.0 + " sec" );
 
     }
 }
