@@ -38,7 +38,7 @@ public class GlobeSortClient {
         this.serverStr = ip + ":" + port;
     }
 
-    public long run(Integer[] values) throws Exception {
+    public double run(Integer[] values) throws Exception {
         System.out.println("Pinging " + serverStr + "...");
         long startTime = System.nanoTime();
 
@@ -57,7 +57,7 @@ public class GlobeSortClient {
         ServResponse response = serverStub.sortIntegers(request);
 
         SortTime sortTime = response.getSortTime();
-        long timeToSort = sortTime.getSortTime();
+        double timeToSort = sortTime.getSortTime();
 
         System.out.println("Sort on Server Time taken: " + timeToSort/1e9 + " sec");
 
@@ -100,7 +100,7 @@ public class GlobeSortClient {
     }
 
     public static void main(String[] args) throws Exception {
-        long startTime = System.nanoTime();
+        double startTime = System.nanoTime();
 
         Namespace cmd_args = parseArgs(args);
         if (cmd_args == null) {
@@ -110,7 +110,7 @@ public class GlobeSortClient {
         Integer[] values = genValues(numValues);
 
         GlobeSortClient client = new GlobeSortClient(cmd_args.getString("server_ip"), cmd_args.getInt("server_port"));
-        long timeToSort;
+        double timeToSort;
         try {
             timeToSort = client.run(values);
         } finally {
